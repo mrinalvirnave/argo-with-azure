@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+data:
+  url: https://argocd.yourdomian.com/ # REPLACE with the external base URL of your Argo CD
+  oidc.config: |
+    name: KrushCloud
+    issuer: https://login.microsoftonline.com/{Azure_Tenant_ID}/v2.0 # REPLACE with your Azure AD tenant's OpenID Connect metadata endpoint
+    clientID: {Azure_Application_ID} # REPLACE with your Azure AD application's Application ID
+    clientSecret: $oidc.azure.clientSecret
+    requestedIDTokenClaims:
+      groups:
+          essential: true
+    requestedScopes:
+      - openid
+      - profile
+      - email

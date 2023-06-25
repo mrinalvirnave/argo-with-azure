@@ -1,0 +1,5 @@
+.envrc
+/argocd/argocd-cm.patch.yaml
+/argocd/argocd-secret.patch.yaml
+/.local
+/certificates

@@ -1,0 +1,11 @@
+controller:
+  service:
+    type: NodePort
+    nodePorts:
+      http: 32080
+      https: 32443
+      tcp:
+        8080: 32808
+  extraArgs:
+    default-ssl-certificate: "ingress-nginx/nginx-tls"
+    enable-ssl-passthrough: ""
